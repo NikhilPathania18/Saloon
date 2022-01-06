@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .table{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <%-include('../partials/navbar.ejs')%>
+    <div class="table">
+        <span><strong>NAME</strong></span>
+        <span><strong>ADDRESS</strong></span>
+        <span><strong>PHONE</strong></span>
+        <span><strong>Service</strong></span>
+        <span>Delete?</span>
+    </div>
+    <%let count=0
+    queue.forEach(person=>{ %>
+        <div class="table">
+            <span><%=person.name%></span>
+            <span><%=person.address%></span>
+            <span><%=person.phone%></span>
+            <span><%=person.service%></span>
+            <button id='del' onclick="del()" data-doc="<%=person._id%>">Delete</button>
+        </div>
+
+    <%count++})%>
+    <H1>Total persons in the queue:<%=count%></H1>
+
+    <script>
+        let btn=document.getElementById('del')
+        console.log(btn)
+        function del(){
+            console.log('button clicked')
+            console.log(btn.dataset.doc)
+            const endpoint=`/show-to-admin/${btn.dataset.doc}`
+            fetch(endpoint,{method:'DELETE',
+                    })
+            .then(response=>response.json())
+            .then(data=>{
+                window.location.href=data.redirect;
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+
+        }
+    </script>
+</body>
+</html>

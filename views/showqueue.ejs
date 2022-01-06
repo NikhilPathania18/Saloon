@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Queue</title>
+</head>
+<body>
+    <%-include('../partials/navbar')%>
+    <% let count=0;
+    queue.forEach(person=>{%>
+        <p>Name:'<%=person.name%>', Address:'<%=person.address%>', Phone number:'<%=person.phone%>,Service:'<%=person.service%></p>
+        <%count++;})%>
+        <p id="totalNumberOfPersons">Total Persons in the queue:<%=count%></p>
+    <script>
+        let totalPersons=document.getElementById('totalNumberOfPersons')
+        totalPersons.innerHTML=`Total persons in the queue=${count}`;
+    </script>
+</body>
+</html>

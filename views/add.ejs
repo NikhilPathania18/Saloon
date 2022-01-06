@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%-include('../partials/navbar')%>
+    <form action="/add-new" method="post">
+        <p>Enter your Name:</p>
+        <input type="text" name="name">
+        <p>Enter your address</p>
+        <input type="text" name="address">
+        <p>Enter your phone number:</p>
+        <input type="number " name="phone">
+        <br>
+        <label for="cars">Choose a service:</label>
+    <select name="service" id="cars">
+    <option value="Cutting">Cutting</option>
+    <option value="Shaving">Shaving</option>
+    <option value="Facial">Facial</option>
+    <option value="CuttingShaving">Cutting and Shaving</option>
+    <option value="CuttingFacial">Cutting and Facial</option>
+    <option value="ShavingFacial">Shaving and Facial</option>
+    <option value="CuttingShavingFacial">Cutting,Shaving and Facial</option>
+  </select>
+        <button type="submit" >Submit</button>
+    </form>
+
+    <script>
+
+    </script>
+</body>
+</html>
