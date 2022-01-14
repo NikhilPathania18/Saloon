@@ -4,33 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SCISSORS | ADD</title>
+    <link rel="icon" href="/logo2.png">
+    <link rel="stylesheet" href="/index.css">
+    <style>
+        #add{
+            color: black;
+            /* font-weight: bold; */
+        }
+        button{
+            margin-top: 30px;
+            border: 2px  solid black ;
+            border-radius: 40px;
+            background-color: rgb(121, 117, 117);
+            height: 80px;
+            width: 220px;
+            font-size: 30px;
+            font-weight: bold;
+            
+        }
+        p{
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        select{
+            border-radius: 20px;
+    border:0;
+    height: 30px;
+    padding: 5px 20px;
+    font-weight: bold;
+        }
+
+        option{
+color: rgb(44, 43, 43);
+        }
+    </style>
 </head>
 <body>
     <%-include('../partials/navbar')%>
+    <div class="form">
     <form action="/add-new" method="post">
         <p>Enter your Name:</p>
-        <input type="text" name="name">
+        <input type="text" id="name" name="name">
         <p>Enter your address</p>
-        <input type="text" name="address">
+        <input type="text" id="address" name="address">
         <p>Enter your phone number:</p>
-        <input type="number " name="phone">
+        <input type="number " id="phone" name="phone">
         <br>
-        <label for="cars">Choose a service:</label>
+        <label for="cars"><p>Choose a service:</p></label>
     <select name="service" id="cars">
     <option value="Cutting">Cutting</option>
     <option value="Shaving">Shaving</option>
     <option value="Facial">Facial</option>
-    <option value="CuttingShaving">Cutting and Shaving</option>
-    <option value="CuttingFacial">Cutting and Facial</option>
-    <option value="ShavingFacial">Shaving and Facial</option>
-    <option value="CuttingShavingFacial">Cutting,Shaving and Facial</option>
+    <option value="Cutting,Shaving">Cutting and Shaving</option>
+    <option value="Cutting,Facial">Cutting and Facial</option>
+    <option value="Shaving,Facial">Shaving and Facial</option>
+    <option value="Cutting,Shaving,Facial">Cutting,Shaving and Facial</option>
   </select>
-        <button type="submit" >Submit</button>
+  <br>
+
+        <button id='btn' onclick="check()"  type="submit">ADD</button>
     </form>
-
+</div>
     <script>
-
+        function check(){
+            console.log('button clicked')
+            let name=document.getElementById('name')
+            let address=document.getElementById('address')
+            let phone=document.getElementById('phone')
+            if(name.value==''||address.value==''||phone.value=='')
+            {
+                alert('Please enter complete details')
+                window.location.reload();
+            }
+           
+        }
     </script>
 </body>
 </html>

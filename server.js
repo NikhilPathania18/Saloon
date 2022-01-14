@@ -9,6 +9,9 @@ const app=express()
 
 app.set('view engine','ejs')
 app.use(express.urlencoded())
+app.use(express.static('public'))
+app.use(express.static('assets'))
+
 
 const dbUrl='mongodb+srv://Nikhil2218:Nikhil2218@cluster0.fwk2q.mongodb.net/Barber?retryWrites=true&w=majority'
 mongoose.connect(dbUrl)
@@ -74,24 +77,14 @@ app.post('/add-new',(req,res)=>{
 
     person.save()
     .then(result=>{
-        res.json({
-            msg:'You have been line up in queue'
-        })
+        
         res.redirect('/')
     })
     .catch(err=>{
         console.log(err)
     })
 })
-// app.get('/show-to-admin',(req,res)=>{
-//     people.find()
-//     .then(queue=>{
-//         res.render('showtoadmin',{queue})
-//    })
-//     .catch(err=>{
-//         console.log(err)
-//     })
-// })
+
 
 app.post('/register-admin',(req,res)=>{
     const Admin=new admin(req.body)
@@ -128,6 +121,10 @@ app.post('/adminto',(req,res)=>{
         })
     })
     
+})
+
+app.use((req,res)=>{
+    res.render('404')
 })
 
 

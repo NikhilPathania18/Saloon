@@ -4,10 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ADMIN</title>
+    <link rel="icon" href="/logo2.png">
+    <link rel="stylesheet" href="/index.css">
+    <style>
+        #admin{
+            color:black;
+        }
+        p{
+            font-size: 25px;
+            font-weight: bolder ;
+        }
+        button{
+            margin-top: 30px;
+            border: 2px  solid black ;
+            border-radius: 40px;
+            background-color: rgb(121, 117, 117);
+            height: 60px;
+            width: 150px;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            
+        }
+    </style>
 </head>
 <body>
     <%-include('../partials/navbar')%>
+    <div class="admin">
     <form action="/adminto" method="post">
         <p>Enter your username</p>
         <input type="text" name="username">
@@ -16,6 +40,7 @@
         <br>
         <button type="submit">Submit</button>
     </form>
+</div>
     
 </body>
 </html>

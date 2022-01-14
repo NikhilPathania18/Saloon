@@ -4,18 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Current Queue</title>
+    <title>SCISSORS | QUEUE</title>
+    <link rel="icon" href="/logo2.png">
+    <link rel="stylesheet" href="/index.css">
+    <style>
+        #show{
+            color:black;
+        }
+        p{
+            font-size: 30px;
+            color: rgb(226, 217, 217);
+        }
+        .srNo,.name,.address,.service{
+            width: 300px;
+            /* border:2px solid red; */
+        }
+        .heading{
+            color: black;
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
     <%-include('../partials/navbar')%>
-    <% let count=0;
-    queue.forEach(person=>{%>
-        <p>Name:'<%=person.name%>', Address:'<%=person.address%>', Phone number:'<%=person.phone%>,Service:'<%=person.service%></p>
-        <%count++;})%>
-        <p id="totalNumberOfPersons">Total Persons in the queue:<%=count%></p>
-    <script>
-        let totalPersons=document.getElementById('totalNumberOfPersons')
-        totalPersons.innerHTML=`Total persons in the queue=${count}`;
-    </script>
+    <div class="personDetails">
+   
+
+        <%let count%>
+                <div class="srNo" id='srNo'>
+            <p class="heading">Number</p>
+            <% count=0;
+          queue.forEach(person=>{ %>
+            <p><%=count+1%></p>
+            <%count++;})%>
+        </div>
+                <div class="name" id='name'>
+            <p class="heading">NAME</p>
+            <% count=0;
+          queue.forEach(person=>{ %>
+            <p><%=person.name%></p>
+            <%count++;})%>
+        </div>
+        <div class="address" id='address'>
+            <p class="heading">ADDRESS</p>
+            <% count=0;
+          queue.forEach(person=>{%>
+            <p><%=person.address%></p>
+            <%count++;})%>
+        </div>
+        <div class="service" id='service'>
+            <P class="heading">SERVICE</P>
+            <% count=0;
+          queue.forEach(person=>{%>
+            <p><%=person.service%></p>
+            <%count++;})%>
+        </div>
+
+        
+        
+        
+    </div>
+    <div class="personDetails totalNumber">
+        <p class="heading">Total persons in the queue: <%=count%>   </p>
+    </div>
+
+   
 </body>
 </html>

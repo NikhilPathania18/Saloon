@@ -4,7 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="icon" href="/logo2.png">
+    <style>
+        #admin{
+            color:black;
+        }
+       
+        p{
+            font-size: 30px;
+            color: rgb(226, 217, 217);
+        }
+        .name,.address,.service{
+            width: 300px;
+            /* border:2px solid red; */
+        }
+        .srNo{
+            width: 60px;
+        }
+        .heading{
+            color: black;
+            font-weight: bolder;
+        }
+        .del{
+            background-image: url('/delete-button.jpg');
+            width: 25px;
+            height: 34px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+        }
+    </style>
+    <title>ADMIN</title>
     <style>
         .table{
             display: flex;
@@ -14,25 +45,63 @@
 </head>
 <body>
     <%-include('../partials/navbar.ejs')%>
-    <div class="table">
-        <span><strong>NAME</strong></span>
-        <span><strong>ADDRESS</strong></span>
-        <span><strong>PHONE</strong></span>
-        <span><strong>Service</strong></span>
-        <span>Delete?</span>
-    </div>
-    <%let count=0
-    queue.forEach(person=>{ %>
-        <div class="table">
-            <span><%=person.name%></span>
-            <span><%=person.address%></span>
-            <span><%=person.phone%></span>
-            <span><%=person.service%></span>
-            <button id='del' onclick="del()" data-doc="<%=person._id%>">Delete</button>
+    <div class="personDetails">
+   
+
+        <%let count%>
+                <div class="srNo" id='srNo'>
+            <p class="heading">No.</p>
+            <% count=0;
+          queue.forEach(person=>{ %>
+            <p><%=count+1%></p>
+            <%count++;})%>
+        </div>
+                <div class="name" id='name'>
+            <p class="heading">NAME</p>
+            <% count=0;
+          queue.forEach(person=>{ %>
+            <p><%=person.name%></p>
+            <%count++;})%>
+        </div>
+        <div class="address" id='address'>
+            <p class="heading">ADDRESS</p>
+            <% count=0;
+          queue.forEach(person=>{%>
+            <p><%=person.address%></p>
+            <%count++;})%>
+        </div>
+        <div class="service" id='service'>
+            <P class="heading">SERVICE</P>
+            <% count=0;
+          queue.forEach(person=>{%>
+            <p><%=person.service%></p>
+            <%count++;})%>
+        </div>
+        <div class="phone" id='phone'>
+            <P class="heading">PHONE</P>
+            <% count=0;
+          queue.forEach(person=>{%>
+            <p><%=person.phone%></p>
+            <%count++;})%>
+        </div>
+        <div class="deleteButton" id='deleteButton'>
+            <p class="heading">DELETE</p>
+
+            <% count=0;
+          queue.forEach(person=>{%>
+            <p>
+            <button id='del' class='del' onclick="del()" data-doc='<%=person._id%>'></button>
+            </p>
+            <%count++;})%>
         </div>
 
-    <%count++})%>
-    <H1>Total persons in the queue:<%=count%></H1>
+        
+        
+        
+    </div>
+    <div class="personDetails totalNumber">
+        <p class="heading">Total persons in the queue: <%=count%>   </p>
+    </div>
 
     <script>
         let btn=document.getElementById('del')
@@ -45,7 +114,7 @@
                     })
             .then(response=>response.json())
             .then(data=>{
-                window.location.href=data.redirect;
+                location.reload();
             })
             .catch(err=>{
                 console.log(err)

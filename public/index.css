@@ -1,0 +1,102 @@
+body{
+    padding: 0;
+    margin: 0;
+    /* background-image: url('./assets/barber-shop-image.jpg'); */
+    background-image: url('/barber-shop-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+}
+
+.navbar{
+display: flex;
+flex-direction: row;
+background-color: rgb(73, 71, 71);
+height: 60px;
+font-weight: bolder;
+align-items: center;
+}
+a{
+text-decoration: none;
+color: white;
+font-size: 20px;
+margin: 0;
+padding: 0;
+/* font-family:'Courier New', Courier, monospace; */
+}
+ul{
+margin: 0px 20px;
+padding: 0;
+}
+ul:hover{
+/* border-bottom: 5px solid white; */
+color: rgb(148, 144, 144);
+}
+.form{
+    margin-left: 40px;
+    width: 330px;
+    /* border: px solid red; */
+    margin-top: 40px;
+    padding: 10px 20px;
+    /* background-color: honeydew; */
+    background-color: rgb(97, 91, 91,0.7) ;
+    border-radius: 30px;
+}
+input{
+    box-sizing: border-box;
+    border-radius: 20px;
+    border:0;
+    height: 30px;
+    padding: 5px 20px;
+    font-weight: bold;
+    
+}
+
+.personDetails{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 40px;
+    margin-left: 40px;
+    /* width: 800px; */
+    /* border: px solid red; */
+    margin-top: 40px;
+    padding: 10px 20px;
+    /* background-color: honeydew; */
+    background-color: rgb(97, 91, 91,0.7) ;
+    border-radius: 30px;
+}
+
+
+.showQueue{
+    margin-left: 40px;
+    width: 330px;
+    /* border: px solid red; */
+    margin-top: 40px;
+    padding: 10px 20px;
+    /* background-color: honeydew; */
+    background-color: rgb(97, 91, 91,0.7) ;
+    border-radius: 30px;
+}
+ .admin{
+    margin-left: 40px;
+    width: 330px;
+    /* border: px solid red; */
+    margin-top: 40px;
+    padding: 10px 20px;
+    /* background-color: honeydew; */
+    background-color: rgb(97, 91, 91,0.7) ;
+    border-radius: 30px;
+ }
+ .totalNumber{
+     margin-bottom: 40px;
+ }
+ .intro{
+     margin: 40px 40px;
+     background-color: rgb(97, 91, 91,0.7);
+     padding: 10px 40px;
+     border-radius: 10px;
+ }
