@@ -4,6 +4,7 @@ const mongoose=require('mongoose')
 const admin=require('./admin')
 const person = require('./people')
 const people=require('./people')
+const port=process.env.PORT || 8000;
 
 const app=express()
 
@@ -16,7 +17,7 @@ app.use(express.static('assets'))
 const dbUrl='mongodb+srv://Nikhil2218:Nikhil2218@cluster0.fwk2q.mongodb.net/Barber?retryWrites=true&w=majority'
 mongoose.connect(dbUrl)
 .then(result=>{
-    app.listen(3000)
+    app.listen(port)
     console.log('Server has started')
 })
 .catch(err=>{
