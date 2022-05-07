@@ -26,7 +26,7 @@ mongoose.connect(dbUrl)
 
 app.get('/',(req,res)=>{
     console.log('request recieved')
-    res.render('index')
+    res.render('add')
 })
 
 app.get('/add',(req,res)=>{
