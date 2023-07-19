@@ -14,7 +14,7 @@ app.use(express.static('public'))
 app.use(express.static('assets'))
 
 
-const dbUrl='mongodb+srv://Nikhil2218:Nikhil2218@cluster0.fwk2q.mongodb.net/Barber?retryWrites=true&w=majority'
+const dbUrl= process.env.MONGO_URL
 mongoose.connect(dbUrl)
 .then(result=>{
     app.listen(port)
